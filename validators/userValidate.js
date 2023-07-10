@@ -1,10 +1,13 @@
-const { body, query, validationResult, param } = require("express-validator");
+const { body, validationResult } = require("express-validator");
 
 const userSchemaValidator = [
   // Validate the 'name' field
   body("username").notEmpty().withMessage("Username is required"),
+
   body("email").isEmail().withMessage("Email is not valid"),
+
   body("email").notEmpty().withMessage("Email is required"),
+
   body("password").notEmpty().withMessage("Password is required"),
 
   // Additional validation rules for other fields
@@ -24,10 +27,16 @@ const userSchemaValidator = [
   },
 ];
 
-const usernameParamValidator = [
-  // Validate the 'name' field
+const emailParamValidator = [
+  // Validate the 'email' field
   // Additional validation rules for other fields
   // ...
+
+  body("email").isEmail().withMessage("Email is not valid"),
+
+  body("email").notEmpty().withMessage("Email is required"),
+
+  body("password").notEmpty().withMessage("Password is required"),
 
   // Check for validation errors
   (req, res, next) => {
@@ -44,5 +53,5 @@ const usernameParamValidator = [
 
 module.exports = {
   userSchemaValidator,
-  usernameParamValidator,
+  emailParamValidator,
 };

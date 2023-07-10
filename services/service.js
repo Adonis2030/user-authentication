@@ -1,5 +1,5 @@
 const { User } = require("../models");
-
+const bcrypt = require("bcrypt");
 /**
  * Get all users
  * @returns {Object} Response object with data and status
@@ -20,20 +20,41 @@ async function getAllUsers() {
  * @returns {Object} Response object with data and status
  */
 async function logIn(email, password) {
+  // const user = await User.findOne({ email });
+  // if (user) {
+  //   if (user.password === password) {
+  //     return {
+  //       data: user,
+  //       status: "success",
+  //     };
+  //   } else
+  //     return {
+  //       data: null,
+  //       error: "wrong password",
+  //       status: "error",
+  //     };
+  // } else {
+  //   return {
+  //     data: null,
+  //     error: "user not exists",
+  //     status: "error",
+  //   };
+  // }
   const user = await User.findOne({ email });
-  console.log("user>>", password, user.password);
   if (user) {
-    if (user.password === password) {
+    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    if (isPasswordMatch) {
       return {
         data: user,
         status: "success",
       };
-    } else
+    } else {
       return {
         data: null,
         error: "wrong password",
         status: "error",
       };
+    }
   } else {
     return {
       data: null,
@@ -49,6 +70,20 @@ async function logIn(email, password) {
  * @returns {Object} Response object with status
  */
 async function signUp(user) {
+  // const isExisted = await User.findOne({ email: user.email });
+  // if (isExisted) {
+  //   return {
+  //     data: {},
+  //     status: "error",
+  //   };
+  // } else {
+  //   const newUser = new User(user);
+  //   newUser.save();
+  //   return {
+  //     data: user,
+  //     status: "success",
+  //   };
+  // }
   const isExisted = await User.findOne({ email: user.email });
   if (isExisted) {
     return {
@@ -56,8 +91,15 @@ async function signUp(user) {
       status: "error",
     };
   } else {
-    const newUser = new User(user);
-    newUser.save();
+    const hashedPassword = await bcrypt.hash(user.password, 10); // Hash the password with a salt round of 10
+
+    const newUser = new User({
+      username: user.username,
+      password: hashedPassword,
+      email: user.email,
+    });
+    await newUser.save();
+
     return {
       data: user,
       status: "success",

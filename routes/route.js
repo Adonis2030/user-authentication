@@ -6,7 +6,7 @@ const { validator } = require("../validators");
 /**
  * @desc    Get all users
  * @route   GET /users
- * @output  {data: [{username: string, email: string, password: string}], status: string}
+ * @output  {data: [{username: string}]}
  * @access  Public
  */
 router.get("/users", userController.getAllUsers);
@@ -21,12 +21,12 @@ router.get("/users", userController.getAllUsers);
 router.post("/signup", validator.userSchemaValidator, userController.signUp);
 
 /**
- * @desc    Get a user by username
- * @route   GET /users/:username
- * @params  username: string
- * @output  {data: {username: string, email: string, password: string}, status: string}
+ * @desc    Get a user by email and password
+ * @route   GET /users/:email&:password
+ * @params  email: string
+ * @output  {data: {__id: string, username: string, email: string, password: string}, status: string}
  * @access  Public
  */
-router.get("/login", validator.usernameParamValidator, userController.logIn);
+router.get("/login", validator.emailParamValidator, userController.logIn);
 
 module.exports = router;

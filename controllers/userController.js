@@ -65,7 +65,7 @@ const logIn = async (req, res) => {
     const { email, password } = req.query;
     const result = await userService.logIn(email, password);
     if (result.status === "error") {
-      return res.status(400).json({ error: "Incorrect username or password" });
+      return res.status(400).json({ error: "Incorrect email or password" });
     } else {
       return res.status(200).json(result);
     }

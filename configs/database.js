@@ -7,8 +7,8 @@ require("dotenv").config();
 const { DB_USERNAME, DB_PASSWORD, DB_DATABASE, DB_CLUSTER } = process.env;
 
 // Construct the MongoDB connection URL
-// const database_url = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@${DB_CLUSTER}.mongodb.net/${DB_DATABASE}?retryWrites=true&w=majority`;
-const database_url = `mongodb://127.0.0.1:27017/soultrain`;
+const database_url = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@${DB_CLUSTER}.mongodb.net/${DB_DATABASE}?retryWrites=true&w=majority`;
+// const database_url = `mongodb://127.0.0.1:27017/soultrain`;
 
 // Define the function to connect to the database
 const connectDB = async () => {
