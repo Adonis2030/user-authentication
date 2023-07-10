@@ -44,11 +44,11 @@ The emailParamValidator is similar to userSchemaValidator, but it specifically v
 ## API Endpoints
 
 - **GET api/soultrain/users**: Get all usernames for display users registered
-  <img src="https://prnt.sc/GNMrUU85fve0" width="100%"/>
+  ![view](https://github.com/Adonis2030/user-authentication/assets/133148501/94a7b262-6e85-4fc0-944d-fd37af7f1c4a)
 
 - **POST api/soultrain/signup**: Create a new user.
 
-  ```shell
+  ``` shell
   params:
   {
     "username": "John Doe",
@@ -57,44 +57,44 @@ The emailParamValidator is similar to userSchemaValidator, but it specifically v
   }
   ```
 
-  <img src="https://prnt.sc/tFEK4jyInAej" width="100%">
+![signup](https://github.com/Adonis2030/user-authentication/assets/133148501/ca751d5c-9895-4164-9819-0a0dccfc5cd3)
 
 - **POST api/soultrain/login**: Login with email and password.
 
-  ```shell
+  ``` shell
   {
     "email": "john.doe@gmail.com",
     "password": "password123"
   }
   ```
+![login](https://github.com/Adonis2030/user-authentication/assets/133148501/2268efe7-ca53-45a9-9294-1b76742f7692)
 
-  <img src="https://prnt.sc/cjZCWiSgokNT" width="100%">
 
-## Instruction for install App and run
+## Instruction for installing App and running
 
 To install and run the App, please follow these steps:
 
-1. Clone the project from git repository:
+1. Clone the project from the git repository:
 
-```shell
+``` shell
 git clone https://github.com/Adonis2030/user-authentication.git
 ```
 
 2. Install dependencies:
 
-```shell
+``` shell
 npm install
 ```
 
 3. Run the server in development mode:
 
-```shell
+``` shell
 npm start
 ```
 
 ## Usage
 
-You can use provided APIs to interact with the server and perform user register and login and view all users registered.
+You can use provided APIs to interact with the server and perform user registration and login and view all users registered.
 Here's an overview of the available endpoints:
 
 -**GET api/soultrain/users**: Retrieve a list of all users by username. -**POST api/soultrain/signup**: Create a new user by providing the data (username, email, password). -**POST api/soultrain/login**: Login by email and password.
