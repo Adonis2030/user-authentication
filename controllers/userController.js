@@ -62,7 +62,7 @@ const getAllUsers = async (req, res) => {
 // Controller function to get a user by their username
 const logIn = async (req, res) => {
   try {
-    const { email, password } = req.query;
+    const { email, password } = req.body;
     const result = await userService.logIn(email, password);
     if (result.status === "error") {
       return res.status(400).json({ error: "Incorrect email or password" });

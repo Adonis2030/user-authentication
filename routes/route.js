@@ -27,6 +27,6 @@ router.post("/signup", validator.userSchemaValidator, userController.signUp);
  * @output  {data: {__id: string, username: string, email: string, password: string}, status: string}
  * @access  Public
  */
-router.get("/login", validator.emailParamValidator, userController.logIn);
+router.post("/login", validator.emailParamValidator, userController.logIn);
 
 module.exports = router;
