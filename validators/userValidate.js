@@ -1,4 +1,4 @@
-const { body, validationResult, param } = require("express-validator");
+const { body, query, validationResult, param } = require("express-validator");
 
 const userSchemaValidator = [
   // Validate the 'name' field
@@ -26,15 +26,12 @@ const userSchemaValidator = [
 
 const usernameParamValidator = [
   // Validate the 'name' field
-  param("username").notEmpty().withMessage("Username is required"),
-
   // Additional validation rules for other fields
   // ...
 
   // Check for validation errors
   (req, res, next) => {
     const errors = validationResult(req);
-
     if (!errors.isEmpty()) {
       // Return validation error response
       return res.status(400).json({ err: errors.array() });

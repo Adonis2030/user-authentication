@@ -52,7 +52,8 @@ const { userService } = require("../services");
 const getAllUsers = async (req, res) => {
   try {
     const users = await userService.getAllUsers();
-    return res.status(200).json(users);
+    const userNames = users.data.map((user) => user.username);
+    return res.status(200).json(userNames);
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
@@ -61,11 +62,10 @@ const getAllUsers = async (req, res) => {
 // Controller function to get a user by their username
 const logIn = async (req, res) => {
   try {
-    const { username } = req.params;
-    const result = await userService.logIn(username);
-
-    if (result.data.length === 0) {
-      return res.status(400).json({ error: "No corresponding user" });
+    const { email, password } = req.query;
+    const result = await userService.logIn(email, password);
+    if (result.status === "error") {
+      return res.status(400).json({ error: "Incorrect username or password" });
     } else {
       return res.status(200).json(result);
     }

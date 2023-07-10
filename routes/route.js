@@ -9,7 +9,7 @@ const { validator } = require("../validators");
  * @output  {data: [{username: string, email: string, password: string}], status: string}
  * @access  Public
  */
-router.get("/all", userController.getAllUsers);
+router.get("/users", userController.getAllUsers);
 
 /**
  * @desc    Add a new user
@@ -27,10 +27,6 @@ router.post("/signup", validator.userSchemaValidator, userController.signUp);
  * @output  {data: {username: string, email: string, password: string}, status: string}
  * @access  Public
  */
-router.get(
-  "/login/:username",
-  validator.usernameParamValidator,
-  userController.logIn
-);
+router.get("/login", validator.usernameParamValidator, userController.logIn);
 
 module.exports = router;

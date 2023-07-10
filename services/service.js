@@ -14,17 +14,33 @@ async function getAllUsers() {
 }
 
 /**
- * Get a user by username
- * @param {string} username - The username of the user to retrieve
+ * Logging in by user email and password
+ * @param {string} email - The email of the user to retrieve
+ * @param {string} password - The password of the user to retrieve
  * @returns {Object} Response object with data and status
  */
-async function logIn(username) {
-  const user = await User.findOne({ username });
-
-  return {
-    data: user === null ? [] : user,
-    status: "success",
-  };
+async function logIn(email, password) {
+  const user = await User.findOne({ email });
+  console.log("user>>", password, user.password);
+  if (user) {
+    if (user.password === password) {
+      return {
+        data: user,
+        status: "success",
+      };
+    } else
+      return {
+        data: null,
+        error: "wrong password",
+        status: "error",
+      };
+  } else {
+    return {
+      data: null,
+      error: "user not exists",
+      status: "error",
+    };
+  }
 }
 
 /**
