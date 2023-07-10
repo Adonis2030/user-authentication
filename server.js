@@ -19,7 +19,7 @@ app.use(limiter);
 
 // routes
 app.get("/", (req, res) => res.send("Welcome to Soultrain!"));
-app.use("/api/soultrain", userRouter);
+app.use("/api", userRouter);
 
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
