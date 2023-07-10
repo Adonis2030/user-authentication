@@ -1,4 +1,4 @@
-# Home Assessment from SOULTRAIN
+# Home Assessment from Soultrain
 
 This project is a backend API hosted on `https://user-authentication-app.onrender.com`
 
@@ -43,12 +43,12 @@ The emailParamValidator is similar to userSchemaValidator, but it specifically v
 
 ## API Endpoints
 
-- **GET api/soultrain/users**: Get all usernames for display users registered
+- **GET api/users**: Get all usernames for display users registered
   ![view](https://github.com/Adonis2030/user-authentication/assets/133148501/94a7b262-6e85-4fc0-944d-fd37af7f1c4a)
 
-- **POST api/soultrain/signup**: Create a new user.
+- **POST api/signup**: Create a new user.
 
-  ``` shell
+  ```shell
   params:
   {
     "username": "John Doe",
@@ -59,16 +59,16 @@ The emailParamValidator is similar to userSchemaValidator, but it specifically v
 
 ![signup](https://github.com/Adonis2030/user-authentication/assets/133148501/ca751d5c-9895-4164-9819-0a0dccfc5cd3)
 
-- **POST api/soultrain/login**: Login with email and password.
+- **POST api/login**: Login with email and password.
 
-  ``` shell
+  ```shell
   {
     "email": "john.doe@gmail.com",
     "password": "password123"
   }
   ```
-![login](https://github.com/Adonis2030/user-authentication/assets/133148501/2268efe7-ca53-45a9-9294-1b76742f7692)
 
+  ![login](https://github.com/Adonis2030/user-authentication/assets/133148501/2268efe7-ca53-45a9-9294-1b76742f7692)
 
 ## Instruction for installing App and running
 
@@ -76,19 +76,19 @@ To install and run the App, please follow these steps:
 
 1. Clone the project from the git repository:
 
-``` shell
+```shell
 git clone https://github.com/Adonis2030/user-authentication.git
 ```
 
 2. Install dependencies:
 
-``` shell
+```shell
 npm install
 ```
 
 3. Run the server in development mode:
 
-``` shell
+```shell
 npm start
 ```
 
@@ -97,15 +97,17 @@ npm start
 You can use provided APIs to interact with the server and perform user registration and login and view all users registered.
 Here's an overview of the available endpoints:
 
--**GET api/soultrain/users**: Retrieve a list of all users by username. -**POST api/soultrain/signup**: Create a new user by providing the data (username, email, password). -**POST api/soultrain/login**: Login by email and password.
+- **GET api/users**: Retrieve a list of all users by username.
+- **POST api/signup**: Create a new user by providing the data (username, email, password).
+- **POST api/login**: Login by email and password.
 
 ## Deployment
 
 The server is currently deployed and hosted on `https://user-authentication-app.onrender.com`.
 You can access the API endpoints by making HTTP requests to the appropriate URLs.
-for example: `https://user-authentication-app.onrender.com/api/soultrain/users`
-or `https://user-authentication-app.onrender.com/api/soultrain/signup`
-or `https://user-authentication-app.onrender.com/api/soultrain/login`.
+for example: `https://user-authentication-app.onrender.com/api/users`
+or `https://user-authentication-app.onrender.com/api/signup`
+or `https://user-authentication-app.onrender.com/api/login`.
 
 ## Technologies
 

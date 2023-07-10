@@ -21,9 +21,9 @@ router.get("/users", userController.getAllUsers);
 router.post("/signup", validator.userSchemaValidator, userController.signUp);
 
 /**
- * @desc    Get a user by email and password
- * @route   GET /users/:email&:password
- * @params  email: string
+ * @desc    Login a user by email and password
+ * @route   Login /users
+ * @params  email: string, password: string
  * @output  {data: {__id: string, username: string, email: string, password: string}, status: string}
  * @access  Public
  */
