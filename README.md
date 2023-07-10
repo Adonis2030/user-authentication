@@ -44,7 +44,7 @@ The emailParamValidator is similar to userSchemaValidator, but it specifically v
 ## API Endpoints
 
 - **GET api/users**: Get all usernames for display users registered
-  ![view](https://github.com/Adonis2030/user-authentication/assets/133148501/94a7b262-6e85-4fc0-944d-fd37af7f1c4a)
+![Screenshot_24](https://github.com/Adonis2030/user-authentication/assets/133148501/cf195f8b-a0a5-4baa-a8f7-400cc4113d85)
 
 - **POST api/signup**: Create a new user.
 
@@ -56,8 +56,8 @@ The emailParamValidator is similar to userSchemaValidator, but it specifically v
     "password": "password123"
   }
   ```
+![Screenshot_26](https://github.com/Adonis2030/user-authentication/assets/133148501/32280a01-98b7-42b4-b6d9-5442b3ed1b00)
 
-![signup](https://github.com/Adonis2030/user-authentication/assets/133148501/ca751d5c-9895-4164-9819-0a0dccfc5cd3)
 
 - **POST api/login**: Login with email and password.
 
@@ -67,8 +67,8 @@ The emailParamValidator is similar to userSchemaValidator, but it specifically v
     "password": "password123"
   }
   ```
+![Screenshot_25](https://github.com/Adonis2030/user-authentication/assets/133148501/5978c3a6-d8e0-4495-9eb1-5401ba9b9fc6)
 
-  ![login](https://github.com/Adonis2030/user-authentication/assets/133148501/2268efe7-ca53-45a9-9294-1b76742f7692)
 
 ## Instruction for installing App and running
 
