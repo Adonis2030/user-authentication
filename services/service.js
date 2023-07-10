@@ -20,26 +20,6 @@ async function getAllUsers() {
  * @returns {Object} Response object with data and status
  */
 async function logIn(email, password) {
-  // const user = await User.findOne({ email });
-  // if (user) {
-  //   if (user.password === password) {
-  //     return {
-  //       data: user,
-  //       status: "success",
-  //     };
-  //   } else
-  //     return {
-  //       data: null,
-  //       error: "wrong password",
-  //       status: "error",
-  //     };
-  // } else {
-  //   return {
-  //     data: null,
-  //     error: "user not exists",
-  //     status: "error",
-  //   };
-  // }
   const user = await User.findOne({ email });
   if (user) {
     const isPasswordMatch = await bcrypt.compare(password, user.password);
@@ -70,20 +50,6 @@ async function logIn(email, password) {
  * @returns {Object} Response object with status
  */
 async function signUp(user) {
-  // const isExisted = await User.findOne({ email: user.email });
-  // if (isExisted) {
-  //   return {
-  //     data: {},
-  //     status: "error",
-  //   };
-  // } else {
-  //   const newUser = new User(user);
-  //   newUser.save();
-  //   return {
-  //     data: user,
-  //     status: "success",
-  //   };
-  // }
   const isExisted = await User.findOne({ email: user.email });
   if (isExisted) {
     return {
